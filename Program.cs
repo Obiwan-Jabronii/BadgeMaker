@@ -13,6 +13,8 @@ namespace CatWorx.BadgeMaker // name of the app, namespaces are the containers t
                 if (firstName == "") {
                     break;
                 }
+
+                // add a Console.Readline for each value
                 Console.Write("Enter last name: ");
                 string lastName = Console.ReadLine() ?? "";
                 Console.Write("Enter employee ID: ");
@@ -26,18 +28,11 @@ namespace CatWorx.BadgeMaker // name of the app, namespaces are the containers t
             return employees;
         }
 
-        static void PrintEmployees(List<Employee> employees){
-            for (int i = 0; i < employees.Count; i++){
-                string template = "{0, -10}\t{1, -20}\t{2}";
-                Console.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetFullName(), employees[i].GetPhotoUrl()));
-            }
-        }
-
         static void Main(string[] args) //the Main method is the entry point to the application, void indicates the return of this method will be void and static implies that the scope of the method is class level, not object level
         {
             List<Employee> employees = GetEmployees();
-            PrintEmployees(employees);
-            
+            Util.PrintEmployees(employees);
+            Util.MakeCSV(employees);
         }
 
     }
@@ -97,7 +92,7 @@ Dictionary<string, int> myscoreBoard = new Dictionary<string, int>(){
 
 //-----------------Arrays-------------------------------
 /* Arrays allow for only one datatype to be in the array at a time and the number of items in the array must be declared when the array is created.
-This means that no new elements can be added or subtracted from the array. They are fixed, this makes them much more ridgid than arrays in JS.
+This means that no new elements can be added or subtracted from the array. They are fixed, this makes them much more rigid than arrays in JS.
 
 ex: string[] favFoods = new string[3] {"pizza", "icecream", "salad"};
 string firstFood = favFoods[0];
